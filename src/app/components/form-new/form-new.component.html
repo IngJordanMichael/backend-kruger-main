@@ -1,11 +1,19 @@
-<div class="contenedor text-center mt-5">
-    <h5 class="mt-3">Nuevo Pokémon</h5>
+<div class="contenedor text-center mt-2">
+    <h5 class="mt-3">{{title}}</h5>
     
-    <form class="form-new">
+    <form class="form-new" autocomplete="off" [formGroup]="form" (ngSubmit)="verified()">
         <div class="contenedor-input">
             <div class="contenedor-i">
                 <label for="name" class="item">Nombre:</label>
-                <input type="text" class="form-control" placeholder="" id="name">
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    placeholder="Nombre" 
+                    id="name"
+                    name="name"
+                    formControlName="name"
+                    [class.is-invalid]="validarCampo('name')"
+                >
             </div>
             <div class="contenedor-i">
                 
@@ -19,7 +27,15 @@
         <div class="contenedor-input">
             <div class="contenedor-i">
                 <label for="image" class="item">Imagen:</label>
-                <input type="text" class="form-control" placeholder="" id="image">
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    placeholder="Imagen" 
+                    id="image"
+                    name="image"
+                    formControlName="image"
+                    [class.is-invalid]="validarCampo('image')"
+                >
             </div>
             <div class="contenedor-i">
                 <label for="" class="item">Defensa:</label>
@@ -29,14 +45,31 @@
             </div>
         </div>
         <label style="margin-left: 590px;">  {{ rangeD }} </label>
+        
         <div class="contenedor-input">
-            <button class="btn btn-success" type="submit"> <i class="bi bi-cloud-upload"></i> Guardar</button>
-            <button class="btn btn-dark" type="button" (click)="emitState()"> <i class="bi bi-x-lg"></i> Cancelar</button>
+            <div class="contenedor-i">
+                <label class="item">Tipo:</label>
+                <select class="form-select" aria-label="Default select example" id="type" name="type" formControlName="type" [class.is-invalid]="validarCampo('type')">
+                    <option selected disabled="disabled">Seleccione el tipo...</option>
+                    <option value="water">Water</option>
+                    <option value="fire">Fire</option>
+                    <option value="normal">Normal</option>
+                    <option value="bug">Bug</option>
+                    <option value="poison">Poison</option>
+                </select>
+            </div>
+            <div class="contenedor-i">
+                <label for="" class="item">HP:</label>
+                <label for="" class="item">0</label>
+                <input id="sliderH" type="range" class="item" min="0" max="100" value="50" (change)="hp()">
+                <label for="" class="item">100</label>
+            </div>
         </div>
-        
-        
-        
-        
-        
+        <label style="margin-left: 590px;">  {{ rangeH }} </label>
+
+        <div class="contenedor-input">
+            <button class="btn btn-success" type="submit" [disabled]="!form.valid"> <i class="bi bi-cloud-upload" ></i> Guardar</button>
+            <button class="btn btn-dark" type="button" (click)="emitState()"> <i class="bi bi-x-lg"></i> Cancelar</button>
+        </div>   
     </form>
 </div>

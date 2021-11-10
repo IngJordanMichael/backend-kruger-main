@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Pokemon } from 'src/app/Models/pokemon';
 
 @Component({
   selector: 'app-pokemon',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PokemonComponent implements OnInit {
 
-  flag: boolean = false;
+  flag   : boolean = false;
+  title  : string = '';
+  pokemon: Pokemon | any;
+  option : boolean = false;
 
   constructor() {}
 
@@ -15,10 +19,21 @@ export class PokemonComponent implements OnInit {
 
   show(){
     this.flag = !this.flag;
+    this.title = 'Nuevo Pokémon';
+    this.option = false;
   }
 
   listenSon(newState:boolean){
     this.flag = newState;
+  }
+
+  changeTitle(newTitle:any){
+    this.title = newTitle;
+  }
+
+  editPokemon(newPokemon:any){
+    this.pokemon = newPokemon;
+    this.option = true;
   }
 
 }

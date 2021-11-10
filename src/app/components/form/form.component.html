@@ -1,24 +1,32 @@
-<table class="table mt-5 mb-5" style="text-align: center;">
+<div class=" mb-5 text-center"> 
+  <table
+    datatable 
+    [dtOptions]="dtOptions" 
+    [dtTrigger]="dtTrigger" 
+    class="row-border hover text-center"
+  >
     <thead>
       <tr>
         <th scope="col">Nombre</th>
         <th scope="col">Imagen</th>
         <th scope="col">Ataque</th>
         <th scope="col">Defensa</th>
-        <th scope="col" colspan="2">Acciones</th>
+        <th scope="col" >Acciones</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let pokemon of pokemons" >
-        <th> {{ pokemon.name }} </th>
+      <tr *ngFor="let pokemon of pokemons">
+        <td> {{ pokemon.name }} </td>
         <td>
             <img [src]="pokemon.image" [alt]="pokemon.name" width="100" height="100" class="d-inline-block align-text-top">        </td>
         <td>{{ pokemon.attack }}</td>
         <td> {{ pokemon.defense }} </td>
-        <td colspan="2" style="text-align: center;">
-            <button type="button" class="btn btn-primary" style="margin-right: 10px;"> <i class="bi bi-pencil-square"></i> </button>
-            <button type="button" class="btn btn-danger"> <i class="bi bi-trash"></i> </button>
+        <td style="text-align: center;">
+            <button type="button" class="btn btn-primary" style="margin-right: 10px;" (click)="emitState(pokemon)"> <i class="bi bi-pencil-square"></i> </button>
+            <button type="button" class="btn btn-danger" (click)="delete(pokemon.id)" > <i class="bi bi-trash"></i> </button>
         </td>
       </tr>
     </tbody>
   </table>
+</div>
+

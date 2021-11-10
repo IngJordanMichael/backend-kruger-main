@@ -3,10 +3,9 @@
     <hr>
     <div>
         <div class="search">
-            <app-search></app-search>
-            <button class="btn btn-outline-primary" (click)="show()" [disabled]="flag"><i class="bi bi-plus"></i> Nuevo</button>
+            <button class="btn btn-outline-primary" (click)="show()"><i class="bi bi-plus"></i> Nuevo</button>
         </div>
-        <app-form-new *ngIf="flag" [state]="flag" (flag)="listenSon($event)"></app-form-new>
-        <app-form></app-form>
+        <app-form-new *ngIf="flag" [state]="flag" [option]="option" [title]="title" [pokemon]="pokemon" (flag)="listenSon($event)"></app-form-new>
+        <app-form  (flag)="listenSon($event)" (title)="changeTitle($event)" (pokemon)="editPokemon($event)"></app-form>
     </div>
 </div>
