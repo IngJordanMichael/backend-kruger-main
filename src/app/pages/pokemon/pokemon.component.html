@@ -1,0 +1,12 @@
+<div class="container">
+    <h1 class="mt-2">Listado de Pokémon</h1>
+    <hr>
+    <div>
+        <div class="search">
+            <app-search></app-search>
+            <button class="btn btn-outline-primary" (click)="show()" [disabled]="flag"><i class="bi bi-plus"></i> Nuevo</button>
+        </div>
+        <app-form-new *ngIf="flag" [state]="flag" (flag)="listenSon($event)"></app-form-new>
+        <app-form></app-form>
+    </div>
+</div>

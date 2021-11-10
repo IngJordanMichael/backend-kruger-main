@@ -1,0 +1,30 @@
+.contenedor{
+    width: 100%;
+    border: 2px solid black;
+    margin-bottom: 20px;
+}
+
+.contenedor-input{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.contenedor-i{
+    display: flex;
+    margin: 20px 150px 20px 150px;
+}
+
+.form-new{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.item{
+    margin-right: 10px;
+}
+
+.contenedor-input button{
+    margin:10px;
+}
