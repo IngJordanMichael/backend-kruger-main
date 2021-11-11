@@ -148,7 +148,7 @@ export class FormNewComponent implements OnInit {
         Swal.fire({
           position: 'center',
           icon: 'success',
-          title: 'Producto registrado con éxito',
+          title: 'Pokémon registrado con éxito',
           showConfirmButton: false,
           timer: 1500
         })

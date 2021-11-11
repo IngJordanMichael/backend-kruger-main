@@ -14,6 +14,7 @@ import { FormsModule,ReactiveFormsModule  } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { DataTablesModule } from "angular-datatables";
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,9 @@ import { DataTablesModule } from "angular-datatables";
     DataTablesModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    /* { provide: LocationStrategy, useClass: HashLocationStrategy } */
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
