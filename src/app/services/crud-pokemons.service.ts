@@ -12,6 +12,18 @@ export class CrudPokemonsService {
  
   constructor(private http:HttpClient) { }
 
+  getPokemonById(id:number){
+    return this.http.get(this.urlBase + id).pipe(
+      map(data=>data)
+    );
+  }
+
+  getRecordsByIdAuthor(id:number){
+    return this.http.get(this.urlBase + 'count?idAuthor=' + id).pipe(
+      map(data=>data)
+    );
+  }
+
   getAllPokemons(){
     return this.http.get(this.urlBase).pipe(
       map(data=>data))
@@ -27,7 +39,7 @@ export class CrudPokemonsService {
     return this.http.put(this.urlBase + pokemon.id,pokemon,{headers: headers});
   }
 
-  deletePokemon(id:any){
+  deletePokemon(id:number){
     return this.http.delete(this.urlBase + id);
   }
 

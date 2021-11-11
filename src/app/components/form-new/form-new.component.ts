@@ -30,8 +30,8 @@ export class FormNewComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.createForm();
-    this.loadData();
-    if(this.option==false) this.reset();
+    if(this.option)this.loadData();
+    else this.reset();
   }
 
   reset(){
