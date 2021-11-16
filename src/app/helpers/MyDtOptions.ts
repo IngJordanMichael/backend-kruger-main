@@ -9,6 +9,6 @@ export const MyDTOptions = {
       url: '//cdn.datatables.net/plug-ins/1.10.20/i18n/Spanish.json',
     },
     pagingType: 'full_numbers',
-    pageLength: 2
+    pageLength: 4
   };
   
